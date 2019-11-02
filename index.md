@@ -10,7 +10,7 @@ It is based on [OMNeT++][2] and the [INET Framework][3].
 
 ## Project overview
 
-* [https://github.com/ptp-sim/OMNeT_Utils](OMNeT_Utils)
+* [OMNeT_Utils](https://github.com/ptp-sim/OMNeT_Utils)
 * libPTP
 * PTP_Simulations
 * libPLN
