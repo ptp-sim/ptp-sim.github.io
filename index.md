@@ -11,9 +11,9 @@ It is based on [OMNeT++][2] and the [INET Framework][3].
 ## Project overview
 
 * [OMNeT_Utils](https://github.com/ptp-sim/OMNeT_Utils)
-* libPTP
-* PTP_Simulations
-* libPLN
+* [libPTP](https://github.com/ptp-sim/libPTP)
+* [PTP_Simulations](https://github.com/ptp-sim/PTP_Simulations)
+* [libPLN](https://github.com/ptp-sim/libPLN)
 
 ## Further information
 
