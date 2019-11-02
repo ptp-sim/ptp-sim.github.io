@@ -10,10 +10,18 @@ It is based on [OMNeT++][2] and the [INET Framework][3].
 
 ## Project overview
 
+The ptp-sim project is host to the following sub-projects:
+
 * [OMNeT_Utils](https://github.com/ptp-sim/OMNeT_Utils)
 * [libPTP](https://github.com/ptp-sim/libPTP)
 * [PTP_Simulations](https://github.com/ptp-sim/PTP_Simulations)
 * [libPLN](https://github.com/ptp-sim/libPLN)
+
+The relationship between these projects and various other projects is sketched in the following image:
+
+![Project relationship](/img/project_relationships.png)
+
+TODO: more detailed description of which role each project plays.
 
 ## Further information
 
