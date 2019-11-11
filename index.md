@@ -30,3 +30,7 @@ TODO: more detailed description of which role each project plays.
 * [Current State](Usage Examples)
 * [Contribute](Contribute)
 * [Release Planning](Release Planning)
+
+## Contact
+
+Please visit the [ptp-sim discussion forum](http://ptp-sim.boards.net) for further discussions.
