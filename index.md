@@ -4,7 +4,14 @@
 **ptp-sim** is a community effort to provide a simulation framework for the Precision Time Protocol (PTP) as specified in [IEEE 1588-2008][1].
 It is based on [OMNeT++][2] and the [INET Framework][3].
 
-<video src="img/banner/banner.webm" poster="img/banner/banner.png" width="804" height="184" autoplay loop preload>
+<style>
+video {
+  max-width: 100%;
+  height: auto;
+}
+</style>
+
+<video src="img/banner/banner.webm" poster="img/banner/banner.png" autoplay loop preload>
 </video>
 
 [1]: https://standards.ieee.org/standard/1588-2008.html
