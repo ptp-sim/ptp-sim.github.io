@@ -9,6 +9,10 @@ video {
   max-width: 100%;
   height: auto;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 </style>
 
 <video src="img/banner/banner.webm" poster="img/banner/banner.png" autoplay loop preload>
