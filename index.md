@@ -22,7 +22,7 @@ The ptp-sim project is the host for the following sub-projects:
 
 The relationship between these projects and various other projects is sketched in the following image:
 
-![Project relationship](/img/project_relationships.png)
+![Project relationship](img/project_relationships.png)
 
 TODO: more detailed description of which role each project plays.
 
