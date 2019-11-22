@@ -2,7 +2,7 @@
 # Simulation of PTP (IEEE 1588)
 
 **ptp-sim** is a community effort to provide a simulation framework for the Precision Time Protocol (PTP) as specified in [IEEE 1588-2008][1].
-It is based on [OMNeT++][2] and the [INET Framework][3].
+It is based on [OMNeT++][2] and the [INET Framework][3]. Discussions about ptp-sim happen at the [discussion forum](http://ptp-sim.boards.net).
 
 <style>
 video {
@@ -35,7 +35,20 @@ The relationship between these projects and various other projects is sketched i
 
 ![Project relationship](img/project_relationships.png)
 
-TODO: more detailed description of which role each project plays.
+The core projects of ptp-sim are __libPTP__ and __libPLN__. __LibPTP__ provides different kinds of simulations models for OMNeT++ to simulate time synchronization as specified in IEEE 1588. This includes a PTP stack and simulation models of PTP-capable network cards. Time synchronization is necessary to counter the errors that affect real clocks. Thus, generation of time synchronization makes only sense if these clock errors are also simulated. __LibPLN__ provides realistic clock noise for our simulations, and does so efficiently (which is important for the simulation of larger networks).
+
+The __PTP_Simulations__ project provides examples to show what can be done with libPTP and libPLN. It should serve as a starting point for new users, to help them create their own simulations.
+
+__OMNeT_Utils__ is a collection of generic simulation models which have been developed to support libPTP.  These models are not specific to libPTP, and they could be useful for other OMNeT++ projects. They are kept in their own project to make the usage in other projects easily possible.
+
+The ptp-sim projects make heavy use of other projects:
+* INET framework: The INET framework provides many different simulation models of network components for OMNeT++.
+* Boost C++ library: We use several algorithm implementations from the Boost library.
+* FFTW: The Fastest Fourier Transform in the West. It's a Fourier Transform. And it's fast. We use if for the filter implementation in our clock noise generation.
+* Spline: A cubic spline interpolation.
+
+The ptp-sim projects would not be possible without these other open source projects. __Thank you!__
+
 
 ## Further information
 
