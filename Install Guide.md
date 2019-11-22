@@ -169,9 +169,8 @@ Have fun exploring PTP!
 #### Step 1: Getting the sources
 Get the sources from [Github](https://github.com/ptp-sim/libPLN).
 
-#### Step 2: Adding the project to OMNeT++
-TODO
+#### Step 2: Building the project
+TODO: add detailed instructions
 
-#### Step 3: Building the project
-TODO
+For now, please see the Readme.md file of the [libPLN](https://github.com/ptp-sim/libPLN) project.
 
