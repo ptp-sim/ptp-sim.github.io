@@ -171,7 +171,85 @@ Get the sources from [Github](https://github.com/ptp-sim/libPLN).
 
 #### Step 2: Building the project
 
-Please follow the [_Install Guide_](https://github.com/ptp-sim/libPLN/blob/master/Install_Guide.md) provided by libPLN.
+Please follow the [_Install Guide_](https://github.com/ptp-sim/libPLN/blob/master/Install_Guide.md) provided by libPLN. After completing this step, you should have two static libraries:
 
-#### Step 3: Using libPLN for PTP simulations in OMNeT++
-This part of the document is still under construction.
+* libPLN.a
+* libPLN_Examples.a
+
+#### Step 3: Building libPTP with support for libPLN
+
+* Tell libPTP to actually use libPLN by defining __HAS_LIBPLN__
+
+  * Open the project settings (righ-click on __libPTP -> Project Settings__)
+  * Go to __C/C++ General -> Paths and Symbols__
+  * Select the __Symbols__ tab
+  * Select __GNU C++__ on the left
+  * Make sure __Show built-in values__ is not selected (this makes the menu more simple by hiding stuff we don't need)
+  * Click on __Add__
+  * Set the name to __HAS_LIBPLN__ and the value to __1__
+  * Select __Add to all configurations__
+  * Click __OK__
+  * Keep the project settings open, we also need them in the next step
+
+  Now, when libPTP is compiled, it will find that _HAS_LIBPLN_ is defined und try to use libPLN. This requires that additional header files are available for a successful compilation.
+
+* Add the include paths for libPLN:
+
+  * Stay in the __C/C++ General -> Paths and Symbols__ menu, but change to the __Includes__ tab
+  * Select __GNU C++__ on the left
+  * Make sure __Show built-in values__ is not selected (this makes the menu more simple by hiding stuff we don't need)
+  * Click on __Add__
+  * Set the directory to your libPLN installation path, e.g. __`/home/wolfgang/ptp/libPLN`__
+  * Select __Add to all configurations__
+  * Click __OK__
+  * Carry out the same steps again to add the __src__ directory of libPLN as an include path, e.g. __`/home/wolfgang/ptp/libPLN/src`__
+  * When you have added, these to include paths, close the project settings again
+
+* Rebuild the libPTP project
+
+  * Right-click on the libPTP project
+  * Select __Clean Local__
+  * Right-click on the libPTP project
+  * Select __Build Project__
+
+#### Step 4: Building PTP_Simulations with support for libPLN
+
+* Add the library path for libPLN to the project
+
+  * Open the project settings (righ-click on __PTP_Simulations -> Project Settings__)
+  * Go to __C/C++ General -> Paths and Symbols__
+  * Select the __Library Paths__ tab
+  * Click __Add__
+  * Set the directory to the install path of your compiled libPLN libraries, e.g. __`/home/wolfgang/ptp/libPLN/build/lib/static`__
+  * Select __Add to all configurations__
+  * Click __OK__
+  * Keep the project settings open, we also need them in the next step
+
+* Tell OMNeT++ to link the libraries for libPLN when building the simulation
+
+  OMNeT\+\+ has it's own build system, and for adding the libraries we can't use the usual way it is done in Eclipse (by adding entries in __C/C++ General -> Paths and Symbols -> Libraries__). We have to use __OMNeT++ -> Makemake__ menu:
+
+  * Go to the __OMNeT++ -> Makemake__ menu
+  * Select the __src: makemake__ entry
+  * Click on __Options__ on the rightside
+  * Select the __Link__ tab
+  * Click on __More >>__ to show all menu entries
+  * Click on the __Add__ buttong (the document with a green plus sign)
+  * Enter __fftw3__, click __OK__
+  * Carry out this step again, and add __PLN__
+  * Carry out this step again, and add __PLN_Examples__
+  * You should now have three added libraries:
+    * PLN_Examples
+    * PLN
+    * fftw3
+  * Close the _Makemake Options_ menu by clicking __OK__
+  * Close the project settings by clicking __OK__
+
+* Rebuild the PTP_Simulations project
+
+  * Right-click on the PTP_Simulations project
+  * Select __Clean Local__
+  * Right-click on the PTP_Simulations project
+  * Select __Build Project__
+
+Your _PTP_Simulations_ project should now be able to carry out simulations where the clock noise is produced by libPLN.
