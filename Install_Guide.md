@@ -3,7 +3,7 @@
 
 This page describes the installation of the following components:
 
-* OMNeT++
+* OMNeT\+\+
 * INET
 * OMNeT_Utils
 * LibPTP
@@ -13,33 +13,34 @@ This page describes the installation of the following components:
 After completing this install guide, you should be able to run PTP simulations with LibPTP.
 
 
-
-# Install OMNeT++ 4.6
+# Install OMNeT\+\+ 4.6
 
 ## Installation
 
-The installation of OMNeT++ is described in detail in the official [Install Guide](https://doc.omnetpp.org/omnetpp4/InstallGuide.pdf).
-When running OMNeT++ for the first time, you are asked whether you would like to install example projects or the INET framework.
+The installation of OMNeT\+\+ is described in detail in the official [Install Guide](https://doc.omnetpp.org/omnetpp4/InstallGuide.pdf).
+When running OMNeT\+\+ for the first time, you are asked whether you would like to install example projects or the INET framework.
 We recommend not to install these projects.
 
-Your OMNeT++ installation should look similar as shown in the following image.
-The (empty) *Project Explorer* of OMNeT++ is highlighted in the image.
+Your OMNeT\+\+ installation should look similar as shown in the following image.
+The (empty) *Project Explorer* of OMNeT\+\+ is highlighted in the image.
 
 ![Pic](img/install/omnet.png)
 
 ## Platform recommendations
 
-LibPTP with OMNeT++ 4.6 is known to run well on **Ubuntu 16.04**.
-Windows 10 and Ubuntu 18.04 and newer are known to cause problems.
+LibPTP with OMNeT\+\+ 4.6 is known to run well on **Ubuntu 16.04**.
+With Ubuntu 18.04 and newer we have experienced problems.
+Windows 10 might work, but is not fully tested/supported.
+
 As a result, the recommended platform is still Ubuntu 16.04.
+If you would like to help with testing/porting on your favorite platform please contact us in the [discussion forum](http://ptp-sim.boards.net).
 
-## Getting startet with OMNeT++
-Knowledge about OMNeT++ is of great importance when working with LibPTP.
-We recommend to read the [OMNeT++ User Guide](https://doc.omnetpp.org/omnetpp4/UserGuide.pdf) before diving into LibPTP.
-OMNeT++ also comes with a tutorial for beginners, called *TicToc*, which can be found in the directory *./doc/tictoc-tutorial/index.html* of the OMNeT++ sources.
+
+## Getting startet with OMNeT\+\+
+Knowledge about OMNeT\+\+ is of great importance when working with LibPTP.
+We recommend to read the [OMNeT\+\+ User Guide](https://doc.omnetpp.org/omnetpp4/UserGuide.pdf) before diving into LibPTP.
+OMNeT\+\+ also comes with a tutorial for beginners, called *TicToc*, which can be found in the directory *./doc/tictoc-tutorial/index.html* of the OMNeT\+\+ sources.
 Completing is tutorial is also highly recommended.
-
-
 
 # INET 2.6
 
@@ -48,7 +49,7 @@ Completing is tutorial is also highly recommended.
 Download the sources for INET 2.6 from the [INET project](https://github.com/inet-framework/inet/releases/download/v2.6.0/inet-2.6.0-src.tgz).
 Extract the archive to a local folder.
 
-#### Step 2: Adding the project to OMNeT++
+#### Step 2: Adding the project to OMNeT\+\+
 
 Right-click in the *Project Explorer* area, and select **Import...**.
 
@@ -86,9 +87,9 @@ This will take some time, and as a result you should have a newly compiled libra
 
 Get the sources from [Github](https://github.com/ptp-sim/OMNeT_Utils).
 
-#### Step 2: Adding the project to OMNeT++
+#### Step 2: Adding the project to OMNeT\+\+
 
-As for the previous projct, add the project to OMNeT++ via **Import - Existing Projects info Workspace**.
+As for the previous projct, add the project to OMNeT\+\+ via **Import - Existing Projects info Workspace**.
 
 #### Step 3: Building the project
 
@@ -102,19 +103,40 @@ The result of the build process is again a compiled library.
 
 Get the sources from [Github](https://github.com/ptp-sim/libPTP).
 
-#### Step 2: Adding the project to OMNeT++
+#### Step 2: Adding the project to OMNeT\+\+
 
-As for the previous projct, add the project to OMNeT++ via **Import - Existing Projects info Workspace**.
+As for the previous projct, add the project to OMNeT\+\+ via **Import - Existing Projects info Workspace**.
 
-#### Step 3: Building the project
+#### Step 3: Dependencies
 
-The *LibPTP* project has dependencies on the two previous projects.
-You can check that the project references are correctly configured by right-clicking on the LibPTP project and selecting **Properties**.
-The projects *INET* and *OMNeT_Utils* should be selected in the **Project References** tab.
+LibPTP depends on the __circular\_buffer__ module of the _boot_ library.
+The _circular_buffer_ module is a header-only module, which means consists only of header files and no additional library files need to be linked.
+
+Installation depends on your operating system. Following are instructions for Ubuntu-based Linux systems and Windows.
+
+__Ubuntu:__
+
+On Ubuntu, you can install the complete Boost development files with the following command:
+`sudo apt install libboost-dev`
+
+__Windows:__
+
+On Windows, we recommend carrying out the following steps:
+
+* Download the Boost library, unzip it somewhere, e.g. _C:\boost_
+* In OMNeT\+\+, open the project settings of LibPTP (right-click -> Project Settings)
+* Go to _C/C++ General -> Paths and Symbols_ and switch to the _Includes_ tab
+* Add the path where you have installed Boost (e.g. C:\boost)
+
+Additionally, LibPTP has dependencies on the two previous projects (_INET_ and _OMNeT\_Utils_). You can check that the project references are correctly configured by right-clicking on the LibPTP project and selecting **Properties**. The projects *INET* and *OMNeT\_Utils* should be selected in the **Project References** tab.
 
 ![Pic](img/install/project_references_libptp.png)
 
-As for the previous projct, build the project via right-click and selecting **Build Project**.
+
+
+#### Step 4: Building the project
+
+As with the previous projct, build the project via right-click and selecting **Build Project**.
 The result of the build process is again a compiled library.
 
 
@@ -125,9 +147,9 @@ The result of the build process is again a compiled library.
 
 Get the sources from [Github](https://github.com/ptp-sim/PTP_Simulations).
 
-#### Step 2: Adding the project to OMNeT++
+#### Step 2: Adding the project to OMNeT\+\+
 
-As for the previous projct, add the project to OMNeT++ via **Import - Existing Projects info Workspace**.
+As for the previous projct, add the project to OMNeT\+\+ via **Import - Existing Projects info Workspace**.
 
 #### Step 3: Building the project
 
@@ -146,11 +168,11 @@ This is the executable that will carry out your simulations.
 When the *PTP_Simulations* has been built successfully, you should be able to carry out simulations.
 The *PTP_Simulations* contains example simulations.
 As an example, open *simulations/PTP/Mixed_Test_2* in the project explorer.
-Right-click on the file **Mixed_Test_2.ned** and select **Run as - OMNeT++ Simulation**.
+Right-click on the file **Mixed_Test_2.ned** and select **Run as - OMNeT\+\+ Simulation**.
 
 ![Pic](img/install/ptp_simulations_run_as.png)
 
-OMNeT++ might show a popup informing you that a run configuration is created for this simulation.
+OMNeT\+\+ might show a popup informing you that a run configuration is created for this simulation.
 Select *Do not show this message again* and click **OK**.
 
 ![Pic](img/install/create_launch_configuration.png)
@@ -225,11 +247,11 @@ Please follow the [_Install Guide_](https://github.com/ptp-sim/libPLN/blob/maste
   * Click __OK__
   * Keep the project settings open, we also need them in the next step
 
-* Tell OMNeT++ to link the libraries for libPLN when building the simulation
+* Tell OMNeT\+\+ to link the libraries for libPLN when building the simulation
 
-  OMNeT\+\+ has it's own build system, and for adding the libraries we can't use the usual way it is done in Eclipse (by adding entries in __C/C++ General -> Paths and Symbols -> Libraries__). We have to use __OMNeT++ -> Makemake__ menu:
+  OMNeT\+\+ has it's own build system, and for adding the libraries we can't use the usual way it is done in Eclipse (by adding entries in __C/C++ General -> Paths and Symbols -> Libraries__). We have to use __OMNeT\+\+ -> Makemake__ menu:
 
-  * Go to the __OMNeT++ -> Makemake__ menu
+  * Go to the __OMNeT\+\+ -> Makemake__ menu
   * Select the __src: makemake__ entry
   * Click on __Options__ on the rightside
   * Select the __Link__ tab
