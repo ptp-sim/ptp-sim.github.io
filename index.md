@@ -53,10 +53,10 @@ The ptp-sim projects would not be possible without these other open source proje
 ## Further information
 
 * [Install Guide](Install_Guide)
-* [Usage Examples](Usage Examples)
-* [Current State](Usage Examples)
+* [Usage Examples](Usage_Examples)
+* [Current State](Current_State)
 * [Contribute](Contribute)
-* [Release Planning](Release Planning)
+* [Release Planning](Release_Planning)
 
 ## Contact
 
