@@ -163,7 +163,7 @@ As for the previous projct, build the project via right-click and selecting **Bu
 The result of the build process is an executable.
 This is the executable that will carry out your simulations.
 
-#### Step 3: Runnign simulations
+#### Step 3: Runnig simulations
 
 When the *PTP_Simulations* has been built successfully, you should be able to carry out simulations.
 The *PTP_Simulations* contains example simulations.
