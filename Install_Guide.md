@@ -213,7 +213,7 @@ Please follow the [_Install Guide_](https://github.com/ptp-sim/libPLN/blob/maste
   * Click __OK__
   * Keep the project settings open, we also need them in the next step
 
-  Now, when libPTP is compiled, it will find that _HAS_LIBPLN_ is defined und try to use libPLN. This requires that additional header files are available for a successful compilation.
+  Now, when libPTP is compiled, it will find that _HAS_LIBPLN_ is defined and try to use libPLN. This requires that additional header files are available for a successful compilation.
 
 * Add the include paths for libPLN:
 
