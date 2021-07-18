@@ -256,7 +256,7 @@ Please follow the [_Install Guide_](https://github.com/ptp-sim/libPLN/blob/maste
   * Click on __Options__ on the rightside
   * Select the __Link__ tab
   * Click on __More >>__ to show all menu entries
-  * Click on the __Add__ buttong (the document with a green plus sign)
+  * Click on the __Add__ button (the document with a green plus sign)
   * Enter __fftw3__, click __OK__
   * Carry out this step again, and add __PLN__
   * Carry out this step again, and add __PLN_Examples__
